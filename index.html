@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Rand sort by dydx</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/dydx/rand_sort">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Rand sort</h1>
+            <h2>Array sorting with non-deterministic performance characterstics</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/dydx/rand_sort/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/dydx/rand_sort/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="random-sorting" class="anchor" href="#random-sorting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random Sorting</h1>
+
+<p>This is a really bad idea, but it was fun. Deterministic output, non-deterministic runtime performance.</p>
+
+<p>We're monkey patching a predicate function for checking that a given Enumerable/Array is sorted and then patching in a new sorting "algorithm" that recursively shuffles the Enumerable/Array until it's sorted</p>
+
+<p>It totally blows the stack after a length of about 8 on my machine. Could maybe use some TCO, but I don't know how to really do that just yet, so whatevers.</p>
+
+<p>Don't use this, ever, for anything. It was basically an excuse to learn about monkey patching which segued into how to write and build a gem.</p>
+
+<p>There aren't any tests for it, either. Sue me</p>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>In your <code>Gemfile</code>:</p>
+
+<pre><code>gem 'rand_sort', :github =&gt; 'dydx/rand_sort'
+</code></pre>
+
+<p>then just <code>require 'rand_sort'</code> in your project</p>
+
+<p>Now you can do things like this:</p>
+
+<pre><code>arr = (1..6).to_a.shuffle
+p arr.rsort
+</code></pre>
+
+<p>The ability and right to do what you want is awesome, isn't it? Knowing the answer to "should I actually do this?" is also pretty awesome.</p>
+
+<p>Don't do this. Please</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/dydx">dydx</a> can be found on <a href="https://github.com/dydx/rand_sort">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
